@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update]
+  before_action :set_item, only: [:edit, :update, :destroy]
 
   def index
   end
@@ -29,13 +29,15 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path(@item), notice: 'Item was successfully updated.'
+      redirect_to item_path(@item), notice: "#{@item.name} was successfully updated."
     else
       render :edit
     end
   end
 
   def destroy
+    @item.destroy
+    redirect_to items_path, notice: "#{@item.name} was successfully destroyed."
   end
 
   private
@@ -43,7 +45,7 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:name, :description, :price, :available, :address, :photo)
   end
-  
+
   def set_item
     @item = Item.find(params[:id])
     authorize @item
