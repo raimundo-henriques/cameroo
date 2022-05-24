@@ -10,6 +10,10 @@ class ItemPolicy < ApplicationPolicy
     true
   end
 
+  def show?
+    true
+  end
+
   def update?
     owner_or_admin?
   end
