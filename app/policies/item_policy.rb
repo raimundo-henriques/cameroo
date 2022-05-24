@@ -6,6 +6,10 @@ class ItemPolicy < ApplicationPolicy
     # end
   end
 
+  def create?
+    true
+  end
+
   def update?
     owner_or_admin?
   end
