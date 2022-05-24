@@ -6,9 +6,13 @@ class ItemsController < ApplicationController
   end
 
   def new
+    authorize @item
+    @item = Item.new
   end
 
   def create
+    authorize @item
+    @item = Item.new(item_params)
   end
 
   def edit
@@ -18,5 +22,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name, :description, :price, :available, :address)
   end
 end
