@@ -1,0 +1,13 @@
+<div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-12 col-md-8">
+      <h1 class="text-center my-5"><%= @item.name %></h1>
+      <%= cl_image_tag @item.photo.key %>
+      <p><%= @item.description %></p>
+      <p><%= @item.price%>€/day</p>
+      <p><%= @item.address %></p>
+      <p><%= @item.user.email %></p>
+      <%= link_to "Book camera", items_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

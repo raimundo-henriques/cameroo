@@ -1,12 +1,11 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update, :destroy]
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
 
   def index
     @items = policy_scope(Item)
   end
 
   def show
-
   end
 
   def new
