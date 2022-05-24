@@ -2,9 +2,11 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update]
 
   def index
+    @items = Item.all
   end
 
   def show
+
   end
 
   def new
