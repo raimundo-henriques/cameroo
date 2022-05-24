@@ -6,13 +6,20 @@ class ItemsController < ApplicationController
   end
 
   def new
-    authorize @item
     @item = Item.new
+    authorize @item
   end
 
   def create
-    authorize @item
+    @user = current_user
     @item = Item.new(item_params)
+    @item.user = @user
+    authorize @item
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,6 +34,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :price, :available, :address)
+    params.require(:item).permit(:name, :description, :price, :available, :address, :photo)
   end
 end

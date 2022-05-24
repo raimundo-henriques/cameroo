@@ -1,0 +1,17 @@
+<h1>ITEMS/NEW</h1>
+
+  <%= simple_form_for @item do |f|%>
+    <%= f.input :name%>
+    <%= f.input :description%>
+    <%= f.input :price%>
+    <%= f.input :address%>
+    <%= f.input :available %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, class: 'btn btn-primary'%>
+  <% end %>
+
+  <%= cl_image_tag("h1zhigxo0siyv6z5npwc.jpg",
+      width: 400, height: 300, crop: :fill) %>
+
+  <%= cl_image_tag("qrgah4utfokiefosgohq.jpg",
+      width: 150, height: 150, crop: :thumb, gravity: :face) %>
