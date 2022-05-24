@@ -13,6 +13,6 @@ class ItemPolicy < ApplicationPolicy
   private
 
   def owner_or_admin?
-    record.user == user || user.admin?
+    record.user == user
   end
 end
