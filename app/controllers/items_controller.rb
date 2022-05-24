@@ -15,6 +15,11 @@ class ItemsController < ApplicationController
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to item_path, notice: 'Item was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
