@@ -5,8 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Booking.destroy_all
 Item.destroy_all
 User.destroy_all
+
 
 user1 = User.create(email: "raimundo.henriques@gmail.com", password: "123456")
 user2 = User.create(email: "ricardosilva.rss@gmail.com", password: "789101112")
@@ -23,4 +25,16 @@ user4 = User.create(email: "ja.melo321@gmail.com", password: "192021222324")
   )
   file = File.open(Rails.root.join("db/resources/camera.jpeg"))
   item.photo.attach(io: file, filename: 'camera.jpeg', content_type: 'image/jpeg')
+end
+
+5.times do
+  random_item = Item.all.sample
+  item = Item.find(random_item.id)
+  Booking.create!(user: user1, item: item, start_date: 20230101, end_date: 20230102)
+end
+
+5.times do
+  random_item = Item.all.sample
+  item = Item.find(random_item.id)
+  Booking.create!(user: user2, item: item, start_date: 20230101, end_date: 20230102)
 end
