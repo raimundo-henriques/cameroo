@@ -6,13 +6,16 @@
   <div class="container">
     <div class="row">
       <% @items.each do |item| %>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
+        <div class="col-sm-3">
+          <div class="card item-card">
             <img class="card-img-top" src="https://i1.adis.ws/i/canon/eos-r5_martin_bissig_lifestyle_05_c629aad3c2154f34b3d7d7ba5a509196?$70-30-header-4by3-dt-jpg$" alt="Card image cap">
             <div class="card-body">
               <h5 class="card-title"><%= item.name %></h5>
-              <p class="card-text"><%= item.description %></p>
-              <a href="#" class="btn btn-primary">See Offer</a>
+              <p class="card-text"><%= item.price %>€</p>
+
+              <%= link_to "See Offer" item_path(item), class:"btn btn-primary"%>
+
+
             </div>
           </div>
         </div>
