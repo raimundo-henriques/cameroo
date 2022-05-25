@@ -9,6 +9,7 @@
             <h5 class="card-title"><%= booking.item.name %></h5>
             <p class="card-text">Start date: <%= booking.start_date %></p>
             <p class="card-text">End date: <%= booking.end_date %></p>
+            <%= link_to "Booking Details", booking_path(booking), class: "btn btn-primary" %>
           </div>
         </div>
     </div>
