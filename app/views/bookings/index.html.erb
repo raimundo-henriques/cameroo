@@ -1,0 +1,17 @@
+<div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
+  <h1 class="text-center my-5">My bookings</h1>
+  <div class="row w-100 m-0">
+    <% @bookings.each do |booking| %>
+    <div class="col-sm-12 col-md-3 my-4 d-flex justify-content-around">
+        <div class="card item-card h-100">
+          <%= cl_image_tag booking.item.photo.key, width: 200, class:"w-100" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= booking.item.name %></h5>
+            <p class="card-text">Start date: <%= booking.start_date %></p>
+            <p class="card-text">End date: <%= booking.end_date %></p>
+          </div>
+        </div>
+    </div>
+    <% end %>
+  </div>
+</div>
