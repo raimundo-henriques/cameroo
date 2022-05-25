@@ -26,9 +26,18 @@ class BookingsController < ApplicationController
   end
 
   def edit
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def update
+    @booking = Booking.find(params[:id])
+    authorize @booking
+    if @booking.update(booking_params)
+      redirect_to booking_path(@booking), notice: 'Booking was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -40,8 +49,8 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:start_date, :end_date)
   end
 
-  def set_item
-    @item = Item.find(params[:item_id])
-    authorize @item
-  end
+  # def set_item
+  #   @item = Item.find(params[:item_id])
+  #   authorize @item
+  # end
 end
