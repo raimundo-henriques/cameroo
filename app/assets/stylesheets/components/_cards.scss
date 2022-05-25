@@ -1,0 +1,19 @@
+.item-card{
+  width: 18rem;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  min-height: 400px;
+  margin-bottom: 17px;
+
+ .card-text{
+  text-overflow: ellipsis;
+  height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+ }
+}
+
+.camera-list {
+  padding-top: 80px;
+}
