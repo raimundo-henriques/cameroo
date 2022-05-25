@@ -4,5 +4,15 @@ class BookingPolicy < ApplicationPolicy
     def resolve
       scope.where(user: user)
     end
+
+    def show?
+      owner_or_admin?
+    end
+  end
+
+  private
+
+  def owner_or_admin?
+    record.user == user
   end
 end
