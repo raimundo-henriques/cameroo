@@ -6,6 +6,10 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    owner_or_admin?
+  end
+
   def create?
     true
   end
