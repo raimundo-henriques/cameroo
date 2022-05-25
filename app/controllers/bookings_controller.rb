@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def index
+    @bookings = policy_scope(Booking).order(:start_date)
   end
 
   def show
@@ -37,5 +38,10 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
+    # authorize @item
   end
 end
