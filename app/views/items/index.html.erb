@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row">
       <% @items.each do |item| %>
-        <div class="col-sm-3">
+        <div class="col-sm-12 col-md-3">
           <div class="card item-card">
             <%= cl_image_tag item.photo.key %>
             <div class="card-body">
