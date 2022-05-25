@@ -15,4 +15,8 @@ class BookingPolicy < ApplicationPolicy
   def owner_or_admin?
     record.user == user
   end
+
+  def create?
+    true
+  end
 end
