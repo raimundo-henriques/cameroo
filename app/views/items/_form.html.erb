@@ -1,0 +1,16 @@
+<div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
+  <h1 class="text-center my-5">Add Camera</h1>
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-12 col-md-8">
+      <%= simple_form_for item do |f|%>
+        <%= f.input :name%>
+        <%= f.input :description%>
+        <%= f.input :price%>
+        <%= f.input :address%>
+        <%= f.input :available %>
+        <%= f.input :photo, as: :file %>
+        <%= f.button :submit, 'Add Camera', class: 'btn btn-primary'%>
+      <% end %>
+    </div>
+  </div>
+</div>

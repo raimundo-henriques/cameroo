@@ -1,12 +1,12 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_item, only: [:edit, :update, :show, :destroy]
 
   def index
     @items = policy_scope(Item)
   end
 
   def show
-
   end
 
   def new
@@ -31,13 +31,15 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path(@item), notice: 'Item was successfully updated.'
+      redirect_to item_path(@item), notice: "#{@item.name} was successfully updated."
     else
       render :edit
     end
   end
 
   def destroy
+    @item.destroy
+    redirect_to items_path, notice: "#{@item.name} was successfully destroyed."
   end
 
   private
