@@ -14,6 +14,10 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
+  def update?
+    owner_or_admin?
+  end
+
   private
 
   def owner_or_admin?
