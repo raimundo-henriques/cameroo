@@ -6,7 +6,7 @@
       <p>Rented by <%= @booking.item.user.email %></p>
       <p>Start date: <%= @booking.start_date %></p>
       <p>End date: <%= @booking.end_date %></p>
-      <p>Total price: <%= @booking.item.price * (@booking.end_date - @booking.start_date) %>€</p>
+      <p>Total price: <%= ((@booking.item.price * (@booking.end_date - @booking.start_date)) / 100).round() %>€</p>
       <%= link_to "Back", bookings_path, class:"btn btn-secondary" %>
     </div>
   </div>
