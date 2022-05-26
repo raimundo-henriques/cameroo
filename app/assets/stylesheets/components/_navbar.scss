@@ -5,6 +5,7 @@
   width: 100vw;
   z-index: 9999;
   top: 0;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -13,4 +14,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.nav-item {
+  line-height: 34px;
 }
