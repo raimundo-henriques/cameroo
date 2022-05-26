@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [ :new, :create ]
   end
   resources :bookings, only: [ :index, :destroy, :edit, :update, :show ]
+
+  get 'my_cameras', to: "items#my_cameras"
 end

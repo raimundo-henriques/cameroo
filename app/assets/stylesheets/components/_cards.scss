@@ -84,3 +84,19 @@
 .booking-dates {
   margin-bottom: 15px;
 }
+
+.card-product img {
+  border-radius: 5px;
+  object-fit: cover;
+  object-position: center;
+  width: 75px;
+  height: 75px;
+}
+
+.card-product ul {
+  list-style-type: none;
+}
+
+.card-product a {
+  text-decoration: none;
+}
