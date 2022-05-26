@@ -11,7 +11,7 @@
             <%= cl_image_tag item.photo.key %>
             <div class="card-body">
               <h5 class="card-title"><%= item.name %></h5>
-              <p class="card-text"><%= item.price %>€</p>
+              <p class="card-text"><%= (item.price / 100).round()  %>€</p>
 
               <%= link_to "See Offer", item_path(item), class:"btn btn-primary"%>
 

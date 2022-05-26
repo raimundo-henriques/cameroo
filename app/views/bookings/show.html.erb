@@ -3,11 +3,11 @@
   <div class="d-flex justify-content-center">
     <%= cl_image_tag @booking.item.photo.key, class: "w-50 p-4"%>
     <div class="flex-direction-column">
-      <div class="p-4">
+      <div class="p-4 pb-2">
         <p>Rented by <%= @booking.item.user.email %></p>
         <p>Start date: <%= @booking.start_date %></p>
         <p>End date: <%= @booking.end_date %></p>
-        <p>Total price: <%= @booking.item.price * (@booking.end_date - @booking.start_date) %>€</p>
+        <p>Total price: <%= ((@booking.item.price * (@booking.end_date - @booking.start_date)) / 100).round() %>€</p>
         <% if policy(@booking).update? %>
           <%= link_to "Update", edit_booking_path(@booking), class: 'btn btn-primary'%>
         <% end %>
@@ -15,7 +15,7 @@
           <%= link_to "Cancel Booking", booking_path(@booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary'  %>
         <% end %>
       </div>
-      <div class="p-4">
+      <div class="p-4 pt-2">
         <%= link_to "Back", bookings_path, class:"btn btn-secondary" %>
       </div>
     </div>
