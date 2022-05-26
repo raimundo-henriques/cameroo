@@ -57,3 +57,30 @@
   left: 0;
   right: 0;
 }
+
+.card-category-bookings {
+  border: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  height: 400px;
+  margin-bottom: 17px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.card-category-bookings img {
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  object-position: center;
+  height: 200px;
+}
+
+.card-category-bookings p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.booking-dates {
+  margin-bottom: 15px;
+}

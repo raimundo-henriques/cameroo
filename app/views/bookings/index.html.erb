@@ -1,17 +1,23 @@
-<div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
-  <h1 class="text-center my-5">My bookings</h1>
-  <div class="row w-100 m-0">
+<div class="container shadow-sm bg-white rounded p-5">
+  <div class="row cards mt-5">
+    <h1 class="text-center pt-3 pb-4">My Bookings</h1>
     <% @bookings.each do |booking| %>
-    <div class="col-sm-12 col-md-3 my-4 d-flex justify-content-around">
-        <div class="card item-card h-100">
-          <%= cl_image_tag booking.item.photo.key, width: 200, class:"w-100" %>
-          <div class="card-body">
-            <h5 class="card-title"><%= booking.item.name %></h5>
-            <p class="card-text">Start date: <%= booking.start_date %></p>
-            <p class="card-text">End date: <%= booking.end_date %></p>
-            <%= link_to "Booking Details", booking_path(booking), class: "btn btn-primary" %>
+    <div class="col-xs-12 col-md-6 col-lg-4 px-4 py-3">
+      <div class="card card-category-bookings shadow-sm">
+        <%= link_to(booking_path(booking)) do %>
+          <%= cl_image_tag booking.item.photo.key, class:"w-100"%>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title pt-3"><%= booking.item.name %></h5>
+          <div class="card-btn-and-price px-5">
+            <div class="booking-dates">
+              <p>From <%= booking.start_date.day%>/<%= booking.start_date.month%>/<%= booking.start_date.year%></p>
+              <p>To <%= booking.end_date.day%>/<%= booking.end_date.month%>/<%= booking.end_date.year%></p>
+            </div>
+            <%= link_to "See more", booking_path(booking), class:""%>
           </div>
         </div>
+      </div>
     </div>
     <% end %>
   </div>
