@@ -4,7 +4,7 @@
       <h1 class="text-center my-5"><%= @item.name %></h1>
       <%= cl_image_tag @item.photo.key %>
       <p><%= @item.description %></p>
-      <p><%= @item.price%>€/day</p>
+      <p><%= (@item.price / 100).round() %>€/day</p>
       <p><%= @item.address %></p>
       <p><%= @item.user.email %></p>
       <%= link_to "Book camera", items_path, class: 'btn btn-primary' %>

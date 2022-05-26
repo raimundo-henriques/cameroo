@@ -19,7 +19,7 @@ user4 = User.create(email: "ja.melo321@gmail.com", password: "192021222324")
   item = Item.create!(
     name: Faker::Camera.brand_with_model,
     description: Faker::Lorem.paragraphs.join(" "),
-    price: rand(10..50),
+    price: rand(1000..5000),
     address: Faker::Address.city,
     user: [user1, user2, user3, user4].sample
   )
