@@ -1,8 +1,18 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <%= image_tag "https://i.ibb.co/VtW4JTw/clipart3128090-1.png" %>
-    <% end %>
+        <%= link_to "#", class: "navbar-brand" do %>
+          <%= image_tag "https://i.ibb.co/VtW4JTw/clipart3128090-1.png" %>
+        <% end %>
+      <div class="search-bar">
+        <%= form_tag items_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a camera"
+          %>
+        <% end %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      </div>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
