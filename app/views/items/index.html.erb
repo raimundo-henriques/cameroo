@@ -1,28 +1,16 @@
-
-
-<div class="camera-list">
-
-
-  <div class="container">
-    <div class="row">
-      <% @items.each do |item| %>
-        <div class="col-sm-12 col-md-3">
-          <div class="card item-card">
-            <%= cl_image_tag item.photo.key %>
-            <div class="card-body">
-              <h5 class="card-title"><%= item.name %></h5>
-              <p class="card-text"><%= (item.price / 100).round()  %>€</p>
-
-              <%= link_to "See Offer", item_path(item), class:"btn btn-primary"%>
-
-
-            </div>
-          </div>
+<div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
+  <div class="row cards">
+    <% @items.each do |item| %>
+    <div class="col-sm-12 col-md-3">
+      <div class="card card-category shadow-sm">
+      <%= cl_image_tag item.photo.key %>
+        <div class="card-body">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-text"><%= (item.price / 100).round()  %>€</p>
+          <%= link_to "See Details", item_path(item), class:"btn btn-primary"%>
         </div>
-      <% end %>
+      </div>
     </div>
-
-
-
+    <% end %>
   </div>
 </div>
