@@ -8,14 +8,16 @@
         <p><%= (@item.price / 100).round() %>€/day</p>
         <p><%= @item.address %></p>
         <p><%= @item.user.email %></p>
+      <div class="row">
+        <%= link_to "Book camera", items_path, class: 'btn btn-primary' %>
+        <%= link_to "Back", items_path, class: 'btn btn-outline-secondary' %>
+        <% if policy(@item).update? %>
+        <%= link_to "Delete", edit_item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
+        <% end %>
+        <% if policy(@item).update? %>
+        <%= link_to "Edit", edit_item_path(@item), class: 'btn btn-outline-warning'%>
+        <% end %>
       </div>
-      <div class="flex-start">
-      <%= link_to "Book camera", items_path, class: 'btn btn-primary' %>
-      <%= link_to "Delete", item_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
-      <%= link_to "Back", items_path, class: 'btn btn-outline-secondary' %>
-      <% if policy(@item).update? %>
-      <%= link_to "Edit", edit_item_path(@item), class: 'btn btn-outline-warning'%>
-      <% end %>
       </div>
     </div>
   </div>
