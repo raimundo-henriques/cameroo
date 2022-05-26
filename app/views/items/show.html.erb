@@ -1,14 +1,22 @@
 <div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
   <div class="row d-flex justify-content-center">
     <div class="col-sm-12 col-md-8">
-      <h1 class="text-center my-5"><%= @item.name %></h1>
-      <%= cl_image_tag @item.photo.key %>
-      <p><%= @item.description %></p>
-      <p><%= @item.price%>€/day</p>
-      <p><%= @item.address %></p>
-      <p><%= @item.user.email %></p>
+      <h1 class="text-center my-5 pt-3"><%= @item.name %></h1>
+      <div class="mx-auto" style="width: 600px;">
+        <%= cl_image_tag @item.photo.key, class: "w-100 p-4" %>
+        <p><%= @item.description %></p>
+        <p><%= (@item.price / 100).round() %>€/day</p>
+        <p><%= @item.address %></p>
+        <p><%= @item.user.email %></p>
+      </div>
+      <div class="flex-start">
       <%= link_to "Book camera", items_path, class: 'btn btn-primary' %>
-      <%= link_to "Delete", item_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary' %>
+      <%= link_to "Delete", item_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
+      <%= link_to "Back", items_path, class: 'btn btn-outline-secondary' %>
+      <% if policy(@item).update? %>
+      <%= link_to "Edit", edit_item_path(@item), class: 'btn btn-outline-warning'%>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
