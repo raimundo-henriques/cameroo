@@ -17,3 +17,43 @@
 .camera-list {
   padding-top: 80px;
 }
+
+.card-category {
+  border: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  height: 330px;
+  margin-bottom: 17px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.card-category img {
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  object-position: center;
+  height: 200px;
+}
+
+.card-category h5 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.card-category p {
+  font-size: 15px;
+  margin: 0;
+}
+
+.card-category a {
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.card-btn-and-price {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+}
