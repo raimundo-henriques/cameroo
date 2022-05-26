@@ -1,16 +1,50 @@
-<div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
-  <div class="row cards">
+<div class="container shadow-sm bg-white rounded p-5">
+<h1 class="text-center pt-5">Cameras</h1>
+  <div class="row cards mt-5">
     <% @items.each do |item| %>
-    <div class="col-sm-12 col-md-3">
+    <div class="col-sm-12 col-md-6 col-lg-4 p-4">
       <div class="card card-category shadow-sm">
-      <%= cl_image_tag item.photo.key %>
+        <div class="card-photo w-100 h-50">
+          <%= cl_image_tag item.photo.key, class:"w-100"%>
+        </div>
         <div class="card-body">
           <h5 class="card-title"><%= item.name %></h5>
           <p class="card-text"><%= (item.price / 100).round()  %>€</p>
-          <%= link_to "See Details", item_path(item), class:"btn btn-primary"%>
+          <div class="card-btn">
+            <%= link_to "See Details", item_path(item), class:"btn btn-primary"%>
+          </div>
         </div>
       </div>
     </div>
     <% end %>
   </div>
 </div>
+
+
+<%#
+<div class="camera-list">
+
+
+  <div class="container">
+    <div class="row">
+      <% @items.each do |item| %>
+        <%# <div class="col-sm-12 col-md-3"> %>
+          <%# <div class="card item-card"> %>
+            <%# <%= cl_image_tag item.photo.key %>
+            <%# <div class="card-body"> %>
+              <%# <h5 class="card-title"><%= item.name %>
+              <%# <p class="card-text"><%= (item.price / 100).round()  %>
+
+              <%# <%= link_to "See Offer", item_path(item), class:"btn btn-primary"%>
+
+
+            <%# </div> %>
+          <%# </div> %>
+        <%# </div> %>
+      <%# <% end %>
+    <%# </div> %>
+
+
+
+  <%# </div> %>
+<%# </div> %> %>

@@ -20,5 +20,22 @@
 
 .card-category {
   border: none;
-  min-height: 300px
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  min-height: 400px;
+  margin-bottom: 17px;
+  position: relative;
+  border-radius: 10px;
+}
+
+.card-category img {
+  border-radius: 10px 10px 0 0;
+}
+
+.card-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
 }
