@@ -11,6 +11,12 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @markers = [
+      {
+        lat: @item.latitude,
+        lng: @item.longitude
+      }
+    ]
   end
 
   def new
