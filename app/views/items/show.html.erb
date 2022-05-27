@@ -2,9 +2,9 @@
   <div class="row d-flex justify-content-center">
     <div class="col-sm-12 col-md-8">
       <h1 class="text-center my-5 pt-3"><%= @item.name %></h1>
-      <div class="mx-auto" style="width: 600px;">
-        <%= cl_image_tag @item.photo.key, class: "w-100 p-4" %>
-        <p><%= @item.description %></p>
+      <div class="mx-auto camera-show">
+        <%= cl_image_tag @item.photo.key, class: "w-100" %>
+        <p class="mt-3"><%= @item.description %></p>
         <p><%= (@item.price / 100).round() %>€/day</p>
         <p><%= @item.address %></p>
         <p><%= @item.user.email %></p>

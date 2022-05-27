@@ -1,7 +1,7 @@
 <div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
   <h1 class="text-center my-5"><%= @booking.item.name %></h1>
   <div class="d-flex justify-content-center">
-    <%= cl_image_tag @booking.item.photo.key, class: "w-50 p-4"%>
+    <%= cl_image_tag @booking.item.photo.key, class: "w-50"%>
     <div class="flex-direction-column">
       <div class="p-4 pb-2">
         <p>Rented by <%= @booking.item.user.email %></p>
