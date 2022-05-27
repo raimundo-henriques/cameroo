@@ -1,24 +1,30 @@
 <div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
-  <div class="row d-flex justify-content-center">
-    <div class="col-sm-12 col-md-8">
       <h1 class="text-center my-5 pt-3"><%= @item.name %></h1>
-      <div class="mx-auto camera-show">
-        <%= cl_image_tag @item.photo.key, class: "w-100" %>
-        <p class="mt-3"><%= @item.description %></p>
-        <p><%= (@item.price / 100).round() %>€/day</p>
-        <p><%= @item.address %></p>
-        <p><%= @item.user.email %></p>
-      <div class="row">
-        <%= link_to "Book camera", new_item_booking_path(@item), class: 'btn btn-primary' %>
-        <%= link_to "Back", :back, class: 'btn btn-outline-secondary' %>
-        <% if policy(@item).update? %>
-        <%= link_to "Delete", edit_item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
-        <% end %>
-        <% if policy(@item).update? %>
-        <%= link_to "Edit", edit_item_path(@item), class: 'btn btn-outline-warning'%>
-        <% end %>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-sm-12 col-md-6 photo-and-description d-flex flex-column align-items-center">
+            <%= cl_image_tag @item.photo.key, class: "w-75 shadow-sm" %>
+            <p class="mt-3 w-100"><%= @item.description %></p>
+          </div>
+          <div class="buttons-and-price col-sm-12 col-md-4">
+            <% if @item.user != current_user %>
+              <div class="text-start w-100 shadow-sm bg-white p-5 rounded">
+                <h3><%= (@item.price / 100).round() %>€/day</h3>
+                <p>Address: <%= @item.address %></p>
+                <p>Owner:</p>
+                <p class="text-truncate"><%= @item.user.email %></p>
+                <%= link_to "Book camera", new_item_booking_path(@item), class: 'btn btn-primary text-truncate mt-3' %>
+                <%= link_to "Back", :back, class: 'btn btn-outline-secondary mt-3' %>
+                <% if policy(@item).update? %>
+                  <%= link_to "Delete", edit_item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
+                <% end %>
+                <% if policy(@item).update? %>
+                  <%= link_to "Edit", edit_item_path(@item), class: 'btn btn-outline-warning'%>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-      </div>
-    </div>
-  </div>
+
 </div>
