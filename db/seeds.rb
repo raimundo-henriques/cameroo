@@ -111,7 +111,7 @@ item10 = Item.create!(
   name: "FUJIFILM X-T30 II Mirrorless",
   description: Faker::Lorem.paragraphs.join(" "),
   price: rand(1000..5000),
-  address: Faker::Address.city,
+  address: "Lisbon",
   user: [user1, user2, user3, user4].sample
 )
 file = URI.open('https://static.bhphoto.com/images/images500x500/1630576160_1662378.jpg')
@@ -138,14 +138,23 @@ file = URI.open('https://static.bhphoto.com/images/multiple_images/images500x500
 item12.photo.attach(io: file, filename: '1639676718_IMG_1662438.jpg', content_type: 'image/jpg')
 
 
-5.times do
-  random_item = Item.all.sample
-  item = Item.find(random_item.id)
-  Booking.create!(user: user1, item: item, start_date: 20230101, end_date: 20230102)
-end
 
-5.times do
-  random_item = Item.all.sample
-  item = Item.find(random_item.id)
-  Booking.create!(user: user2, item: item, start_date: 20230101, end_date: 20230102)
-end
+random_item1 = Item.all.sample
+item = Item.find(random_item1.id)
+Booking.create!(user: user1, item: item, start_date: 20230501, end_date: 20230502)
+
+
+random_item2 = Item.all.sample
+item = Item.find(random_item2.id)
+Booking.create!(user: user2, item: item, start_date: 20230301, end_date: 20230302)
+
+
+
+random_item3 = Item.all.sample
+item = Item.find(random_item3.id)
+Booking.create!(user: user3, item: item, start_date: 20230401, end_date: 20230402)
+
+
+random_item4 = Item.all.sample
+item = Item.find(random_item4.id)
+Booking.create!(user: user4, item: item, start_date: 20230501, end_date: 20230602)
