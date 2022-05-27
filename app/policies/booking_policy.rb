@@ -7,7 +7,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def show?
-    owner_or_admin?
+    owner_or_admin? || record.item.user == user
   end
 
   def create?
@@ -19,7 +19,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def destroy?
-    owner_or_admin?
+    owner_or_admin? || record.item.user == user
   end
 
   private
