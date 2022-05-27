@@ -24,7 +24,7 @@ class ItemsController < ApplicationController
     @item.user = @user
     authorize @item
     if @item.save
-      redirect_to root_path
+      redirect_to my_cameras_path
     else
       render :new
     end
@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
 
   def destroy
     @item.destroy
-    redirect_to items_path, notice: "#{@item.name} was successfully destroyed."
+    redirect_to my_cameras_path, notice: "#{@item.name} was successfully destroyed."
   end
 
   def my_cameras
