@@ -20,7 +20,7 @@ item1 = Item.create!(
   description: Faker::Lorem.paragraphs.join(" "),
   price: rand(1000..5000),
   address: "Lisbon",
-  user: user1, user2, user3, user4].sample
+  user: [user1, user2, user3, user4].sample
 )
 file = URI.open('https://static.bhphoto.com/images/multiple_images/images500x500/1460024052_IMG_613113.jpg')
 item1.photo.attach(io: file, filename: '1460024052_IMG_613113.jpg', content_type: 'image/jpg')
