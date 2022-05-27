@@ -13,13 +13,13 @@
   </head>
     <%= render "partials/navbar" %>
     <div>
-      <%= yield %>
+        <%= yield %>
+      </div>
       <p class="notice"><%#= notice %></p>
       <p class="alert"><%#= alert %></p>
       <% flash.each do |name, msg| %>
         <%= content_tag(:div, msg, class: "alert alert-info disappear") %>
       <% end %>
-    </div>
     <%= render "partials/footer" %>
 
   </body>

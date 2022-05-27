@@ -1,5 +1,8 @@
-<h1>Update booking</h1>
-
-<%= render 'form', item: @item, booking: @booking %>
-
-<%= link_to 'Back', booking_path(@booking) %>
+<div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
+  <div class="row d-flex justify-content-center">
+    <div class="col-sm-12 col-md-8">
+      <h1 class="text-center my-5 pt-3">Edit Booking</h1>
+      <%= render 'form', item: @item, booking: @booking %>
+    </div>
+  </div>
+</div>
