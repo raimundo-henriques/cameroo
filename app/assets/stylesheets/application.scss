@@ -12,3 +12,12 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+body {
+  background-image: linear-gradient(rgba(240,240,240,0.9), rgba(240,240,240,0.9)), url("https://img.freepik.com/free-vector/doodle-camera-icons-set_98292-6879.jpg?t=st=1653598307~exp=1653598907~hmac=827a0be8b2cef8f92b71276c104c1622047988e8e7d4968c0ab78530f84fb60c&w=900");
+  background-position: left;
+}
+
+.bg-white {
+  --bs-bg-opacity: 0.8;
+}

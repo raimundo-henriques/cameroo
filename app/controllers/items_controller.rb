@@ -3,7 +3,11 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :update, :show, :destroy]
 
   def index
-    @items = policy_scope(Item)
+    if params[:query].present?
+      @items = policy_scope(Item.search_by_name_and_description_and_address(params[:query]))
+    else
+      @items = policy_scope(Item)
+    end
   end
 
   def show
@@ -40,6 +44,11 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     redirect_to items_path, notice: "#{@item.name} was successfully destroyed."
+  end
+
+  def my_cameras
+    @items = policy_scope(current_user.items)
+    authorize @items
   end
 
   private

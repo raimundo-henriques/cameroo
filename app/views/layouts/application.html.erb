@@ -11,12 +11,15 @@
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
-
-  <body>
     <%= render "partials/navbar" %>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div>
+      <%= yield %>
+      <p class="notice"><%#= notice %></p>
+      <p class="alert"><%#= alert %></p>
+      <% flash.each do |name, msg| %>
+        <%= content_tag(:div, msg, class: "alert alert-info disappear") %>
+      <% end %>
+    </div>
     <%= render "partials/footer" %>
 
   </body>
