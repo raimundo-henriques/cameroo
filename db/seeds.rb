@@ -10,20 +10,17 @@ Booking.destroy_all
 Item.destroy_all
 User.destroy_all
 
-
-
 user1 = User.create(email: "raimundo.henriques@gmail.com", password: "123456")
 user2 = User.create(email: "ricardosilva.rss@gmail.com", password: "789101112")
 user3 = User.create(email: "guygb91@gmail.com", password: "131415161718")
 user4 = User.create(email: "ja.melo321@gmail.com", password: "192021222324")
 
-
 item1 = Item.create!(
-  name: Faker::Camera.brand_with_model,
+  name: "Hasselblad H6D-100c",
   description: Faker::Lorem.paragraphs.join(" "),
   price: rand(1000..5000),
   address: "Lisbon",
-  user: [user1, user2, user3, user4].sample
+  user: user1, user2, user3, user4].sample
 )
 file = URI.open('https://static.bhphoto.com/images/multiple_images/images500x500/1460024052_IMG_613113.jpg')
 item1.photo.attach(io: file, filename: '1460024052_IMG_613113.jpg', content_type: 'image/jpg')
