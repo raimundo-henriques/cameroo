@@ -7,24 +7,23 @@
             <p class="mt-3 w-100"><%= @item.description %></p>
           </div>
           <div class="buttons-and-price col-sm-12 col-md-4">
-            <% if @item.user != current_user %>
               <div class="text-start w-100 shadow-sm bg-white p-5 rounded">
                 <h3><%= (@item.price / 100).round() %>€/day</h3>
                 <p>Address: <%= @item.address %></p>
-                <p>Owner:</p>
+                <p class="mb-0">Owner:</p>
                 <p class="text-truncate"><%= @item.user.email %></p>
-                <%= link_to "Book camera", new_item_booking_path(@item), class: 'btn btn-primary text-truncate mt-3' %>
+                <% if @item.user != current_user %>
+                  <%= link_to "Book camera", new_item_booking_path(@item), class: 'btn btn-primary text-truncate mt-3' %>
+                <% end %>
+                <% if policy(@item).destroy? %>
+                  <%= link_to "Edit", edit_item_path(@item), class: 'btn btn-outline-primary mt-3'%>
+                <% end %>
+                <% if policy(@item).update? %>
+                  <%= link_to "Delete", edit_item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-warning mt-3' %>
+                <% end %>
                 <%= link_to "Back", :back, class: 'btn btn-outline-secondary mt-3' %>
-                <% if policy(@item).update? %>
-                  <%= link_to "Delete", edit_item_path(@item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-outline-primary' %>
-                <% end %>
-                <% if policy(@item).update? %>
-                  <%= link_to "Edit", edit_item_path(@item), class: 'btn btn-outline-warning'%>
-                <% end %>
               </div>
-            <% end %>
           </div>
         </div>
       </div>
-
 </div>
