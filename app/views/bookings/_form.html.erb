@@ -1,5 +1,12 @@
 <%= simple_form_for [item, booking] do |f| %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
-  <%= f.button :submit, 'Book Camera', class: 'btn btn-primary'%>
+  <div class="d-flex justify-content-end align-items-center">
+    <%= link_to 'Back', :back, class:'btn btn-outline-secondary m-4' %>
+    <% if booking.new_record? %>
+      <%= f.button :submit, 'Book Camera', class: 'btn btn-primary my-5'%>
+    <% else %>
+      <%= f.button :submit, 'Update booking', class: 'btn btn-primary my-5'%>
+    <% end %>
+  </div>
 <% end %>

@@ -1,5 +1,8 @@
-<div class="container my-4 py-4 px-2 shadow-sm bg-white rounded">
-  <h1 class="text-center my-5">Add Camera</h1>
+  <% if item.new_record? %>
+    <h1 class="text-center my-5 pt-3">Add Camera</h1>
+  <% else %>
+    <h1 class="text-center my-5 pt-3">Edit Camera</h1>
+  <% end %>
   <div class="row d-flex justify-content-center">
     <div class="col-sm-12 col-md-8">
       <%= simple_form_for item do |f|%>
@@ -9,8 +12,14 @@
         <%= f.input :address%>
         <%= f.input :available %>
         <%= f.input :photo, as: :file %>
-        <%= f.button :submit, 'Add Camera', class: 'btn btn-primary'%>
+        <div class="d-flex justify-content-end align-items-center">
+          <%= link_to 'Back', :back, class:'btn btn-outline-secondary m-4' %>
+          <% if item.new_record? %>
+            <%= f.button :submit, 'Add Camera', class: 'btn btn-primary my-5'%>
+          <% else %>
+            <%= f.button :submit, 'Update Camera', class: 'btn btn-primary my-5'%>
+          <% end %>
+        </div>
       <% end %>
     </div>
   </div>
-</div>
