@@ -46,6 +46,11 @@ class ItemsController < ApplicationController
     redirect_to items_path, notice: "#{@item.name} was successfully destroyed."
   end
 
+  def my_cameras
+    @items = policy_scope(current_user.items)
+    authorize @items
+  end
+
   private
 
   def item_params

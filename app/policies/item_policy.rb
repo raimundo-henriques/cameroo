@@ -21,6 +21,10 @@ class ItemPolicy < ApplicationPolicy
     owner_or_admin?
   end
 
+  def my_cameras?
+    true
+  end
+
   private
 
   def owner_or_admin?
