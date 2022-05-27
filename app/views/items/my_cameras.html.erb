@@ -1,6 +1,7 @@
 <div class="container my-4 py-4 px-5 shadow-sm bg-white rounded">
   <div class="my_cameras_list m-5">
     <h1 class="text-center pt-3 pb-4">My Cameras</h1>
+    <%= link_to "New camera", new_item_path, class: 'btn btn-primary' %>
     <% @items.each do |item| %>
     <div class="card-product d-flex justify-content-start m-4">
       <%= cl_image_tag item.photo.key %>
