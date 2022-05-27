@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [ :show, :edit, :destroy ]
+  before_action :set_booking, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @bookings = policy_scope(Booking).order(:start_date)
@@ -31,7 +31,6 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking = Booking.find(params[:id])
     if @booking.update(booking_params)
       redirect_to booking_path(@booking), notice: 'Booking was successfully updated.'
     else
