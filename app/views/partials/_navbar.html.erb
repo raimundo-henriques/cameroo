@@ -28,19 +28,22 @@
             <%= link_to "Cameras", items_path, class: "nav-link" %>
           </li>
            <li class="nav-item">
-            <%= link_to "Log-out", destroy_user_session_path, method: :delete, class: "nav-link" %>
+            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://s2.glbimg.com/xr_cP_kf3hq8QT0Ut2KI3MTwlYw=/0x0:4851x3234/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/4/F/YV0FQOQ9GBbMQeLCAixA/foto-camera.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "My Cameras", "#", class: "dropdown-item" %>
+              <%= link_to "My Cameras", my_cameras_path, class: "dropdown-item" %>
               <%= link_to "My Bookings", bookings_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            <%= link_to "Cameras", items_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>
