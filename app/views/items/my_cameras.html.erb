@@ -7,7 +7,8 @@
       <div class="card-product-infos px-4">
         <h2><%= link_to item.name, item_path(item) %></h2>
         <ul>
-        <% item.bookings.each do |booking| %>
+        <% camera_bookings = item.bookings.sort_by { |d| d[:start_date]}  %>
+        <% camera_bookings.each do |booking| %>
           <li><%= link_to(booking_path(booking)) do %>
             Booked from <%= booking.start_date.day%>/<%= booking.start_date.month%>/<%= booking.start_date.year%> to <%= booking.end_date.day%>/<%= booking.end_date.month%>/<%= booking.end_date.year%> by <%= booking.user.email %>
             <% end %>
